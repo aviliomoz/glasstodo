@@ -1,0 +1,13 @@
+// Base
+@import './base/fonts';
+@import './base/global';
+
+//Components
+@import './components/Task';
+@import './components/Modal';
+
+//Containers
+@import './containers/Layout';
+
+//Views
+@import './views/Home';

@@ -1,0 +1,69 @@
+.layout {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-bottom: 100px;
+  .layout-header {
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    z-index: 10;
+    background-color: white;
+    .layout-header-top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .layout-header-top-user {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: cadetblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+          color: white;
+        }
+      }
+    }
+    .layout-header-nav {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      .layout-header-nav-button {
+        padding: 6px 10px;
+        border-radius: 14px;
+        border: none;
+        outline: none;
+      }
+      .active {
+        background-color: cadetblue;
+        color: white;
+      }
+    }
+  }
+  .layout-main {
+    position: relative;
+    top: 125px;
+    width: 100%;
+    height: calc(100vh - 125px);
+    padding: 20px;
+    .add-task-button {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      background-color: cadetblue;
+      font-size: 32px;
+      color: white;
+    }
+  }
+  .layout-footer {
+    height: 40vh;
+  }
+}
