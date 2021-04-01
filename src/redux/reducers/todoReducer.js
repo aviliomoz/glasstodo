@@ -39,6 +39,9 @@ export const todoReducer = (state = initialState, action) => {
         activeTask: action.payload,
       };
 
+    case types.todoReset:
+      return initialState;
+
     default:
       return state;
   }

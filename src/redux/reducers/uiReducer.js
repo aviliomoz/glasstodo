@@ -12,12 +12,12 @@ export const uiReducer = (state = initialState, action) => {
         ...state,
         activeFilter: action.payload,
       };
-    case types.iuOpenModal:
+    case types.uiOpenModal:
       return {
         ...state,
         modalIsOpen: true,
       };
-    case types.iuCloseModal:
+    case types.uiCloseModal:
       return {
         ...state,
         modalIsOpen: false,

@@ -7,14 +7,39 @@ export const simpleFetch = (endpoint, method = 'GET', body = null) => {
     } else {
       return fetch(`${api_url}/api${endpoint}`, {
         method,
-        body: JSON.stringify({ task: body }),
+        body: JSON.stringify(body),
         headers: {
           'Content-Type': 'application/json',
         },
       });
     }
   } catch (error) {
-    console.log('Error happened here!');
+    console.error(error);
+  }
+};
+
+export const fetchWithToken = (endpoint, method = 'GET', body = null) => {
+  const token = localStorage.getItem('jwt') || '';
+
+  try {
+    if (method === 'GET') {
+      return fetch(`${api_url}/api${endpoint}`, {
+        method,
+        headers: {
+          'x-token': token,
+        },
+      });
+    } else {
+      return fetch(`${api_url}/api${endpoint}`, {
+        method,
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/json',
+          'x-token': token,
+        },
+      });
+    }
+  } catch (error) {
     console.error(error);
   }
 };

@@ -4,13 +4,15 @@ import { Task } from '../components/Task';
 import { getTasks } from '../redux/actions/todoActions';
 
 export const Home = () => {
-  const { tasks } = useSelector((state) => state.todo);
-  const { activeFilter } = useSelector((state) => state.ui);
   const dispatch = useDispatch();
 
+  const { tasks } = useSelector((state) => state.todo);
+  const { activeFilter } = useSelector((state) => state.ui);
+  const { uid } = useSelector((state) => state.auth);
+
   useEffect(() => {
-    dispatch(getTasks());
-  }, [dispatch]);
+    dispatch(getTasks(uid));
+  }, [dispatch, uid]);
 
   const renderTasksByFilter = () => {
     switch (activeFilter) {

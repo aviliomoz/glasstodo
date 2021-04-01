@@ -15,15 +15,12 @@
       align-items: center;
       justify-content: space-between;
       .layout-header-top-user {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: cadetblue;
         display: flex;
         align-items: center;
         justify-content: center;
         i {
-          color: white;
+          color: black;
+          margin-left: 16px;
         }
       }
     }

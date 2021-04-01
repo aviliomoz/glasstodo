@@ -9,12 +9,12 @@ export const setActiveFilter = (filterId) => {
 
 export const openModal = () => {
   return {
-    type: types.iuOpenModal,
+    type: types.uiOpenModal,
   };
 };
 
 export const closeModal = () => {
   return {
-    type: types.iuCloseModal,
+    type: types.uiCloseModal,
   };
 };

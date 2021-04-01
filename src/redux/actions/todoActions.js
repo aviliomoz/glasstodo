@@ -1,10 +1,10 @@
 import { types } from '../types';
-import { simpleFetch } from '../../helpers/fetch';
+import { fetchWithToken } from '../../helpers/fetch';
 
-export const getTasks = () => {
+export const getTasks = (uid) => {
   return async (dispatch) => {
     try {
-      const res = await simpleFetch('/tasks');
+      const res = await fetchWithToken(`/tasks/${uid}`);
       const data = await res.json();
 
       if (data.ok) {
@@ -22,7 +22,7 @@ export const getTasks = () => {
 export const createTask = (task) => {
   return async (dispatch) => {
     try {
-      const res = await simpleFetch('/tasks', 'POST', task);
+      const res = await fetchWithToken('/tasks', 'POST', task);
       const data = await res.json();
 
       if (data.ok) {
@@ -32,7 +32,6 @@ export const createTask = (task) => {
         });
       }
     } catch (error) {
-      console.log('asdasd');
       console.error(error);
     }
   };
@@ -41,7 +40,7 @@ export const createTask = (task) => {
 export const updateTask = (task) => {
   return async (dispatch) => {
     try {
-      const res = await simpleFetch(`/tasks/${task._id}`, 'PUT', task);
+      const res = await fetchWithToken(`/tasks/${task._id}`, 'PUT', task);
       const data = await res.json();
 
       if (data.ok) {
@@ -59,7 +58,7 @@ export const updateTask = (task) => {
 export const deleteTask = (task) => {
   return async (dispatch) => {
     try {
-      const res = await simpleFetch(`/tasks/${task._id}`, 'DELETE', task);
+      const res = await fetchWithToken(`/tasks/${task._id}`, 'DELETE', task);
       const data = await res.json();
 
       if (data.ok) {

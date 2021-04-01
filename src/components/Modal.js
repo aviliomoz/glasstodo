@@ -10,12 +10,13 @@ import { closeModal } from '../redux/actions/uiActions';
 export const Modal = () => {
   const dispatch = useDispatch();
   const { activeTask } = useSelector((state) => state.todo);
+  const { uid } = useSelector((state) => state.auth);
 
   const newTask = () => {
     if (activeTask) {
       return { ...activeTask };
     } else {
-      return { title: '', completed: false };
+      return { title: '', completed: false, user: uid };
     }
   };
 

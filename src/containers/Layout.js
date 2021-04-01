@@ -1,12 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../components/Modal';
+import { logout } from '../redux/actions/authActions';
 import { openModal, setActiveFilter } from '../redux/actions/uiActions';
 
 export const Layout = ({ children }) => {
   const dispatch = useDispatch();
 
   const { activeFilter, modalIsOpen } = useSelector((state) => state.ui);
+  const { username } = useSelector((state) => state.auth);
 
   const verifyActiveFilterClassName = (filterName) => {
     if (filterName === activeFilter) {
@@ -21,9 +23,12 @@ export const Layout = ({ children }) => {
       <header className="layout-header">
         <div className="layout-header-top">
           <h1>Tareas</h1>
-          {/* <div className="layout-header-top-user">
-            <i className="material-icons">perm_identity</i>
-          </div> */}
+          <div className="layout-header-top-user">
+            <span>{username}</span>
+            <i onClick={() => dispatch(logout())} className="material-icons">
+              logout
+            </i>
+          </div>
         </div>
         <nav className="layout-header-nav">
           <button

@@ -1,3 +1,47 @@
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useForm } from '../hooks/useForm';
+import { login } from '../redux/actions/authActions';
+
 export const Login = () => {
-  return <h1>Login</h1>;
+  const dispatch = useDispatch();
+
+  const [formValues, handleInputChange] = useForm({
+    email: 'avilio@correo.com',
+    password: '123456',
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(formValues.email, formValues.password));
+  };
+
+  return (
+    <div className="login">
+      <form onSubmit={handleSubmit} className="login-form">
+        <h3>Iniciar sesión</h3>
+
+        <input
+          autoComplete="off"
+          placeholder="Email"
+          name="email"
+          type="email"
+          value={formValues.email}
+          onChange={handleInputChange}
+        />
+        <input
+          autoComplete="off"
+          placeholder="Password"
+          name="password"
+          type="password"
+          value={formValues.password}
+          onChange={handleInputChange}
+        />
+        <button className="login-button" type="submit">
+          Log in
+        </button>
+        <Link to="/signin">Registrarse</Link>
+      </form>
+    </div>
+  );
 };
