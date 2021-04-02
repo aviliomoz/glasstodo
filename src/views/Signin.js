@@ -27,8 +27,16 @@ export const Signin = () => {
 
   return (
     <div className="signin">
+      <div className="signin-header">
+        <div className="signin-header-logo">
+          <div className="signin-header-logo-card-1"></div>
+          <div className="signin-header-logo-card-2"></div>
+          <div className="signin-header-logo-card-3"></div>
+        </div>
+        <h1 className="signin-header-title">Mis Tareas</h1>
+      </div>
       <form onSubmit={handleSubmit} className="signin-form">
-        <h3>Registrarse</h3>
+        <h2>Registrarse</h2>
         <input
           autoComplete="off"
           placeholder="Nombre"
@@ -62,7 +70,7 @@ export const Signin = () => {
           onChange={handleInputChange}
         />
         <button className="signin-button" type="submit">
-          Sign in
+          Entrar
         </button>
         <Link to="/login">Ya tengo cuenta</Link>
       </form>

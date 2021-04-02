@@ -58,9 +58,9 @@ export const Layout = ({ children }) => {
         {children}
         <button
           onClick={() => dispatch(openModal())}
-          className="add-task-button"
+          className="add-task-button material-icons"
         >
-          +
+          add
         </button>
       </main>
       <footer className="layout-footer"></footer>

@@ -7,8 +7,8 @@ export const Login = () => {
   const dispatch = useDispatch();
 
   const [formValues, handleInputChange] = useForm({
-    email: 'avilio@correo.com',
-    password: '123456',
+    email: '',
+    password: '',
   });
 
   const handleSubmit = (e) => {
@@ -18,8 +18,16 @@ export const Login = () => {
 
   return (
     <div className="login">
+      <div className="login-header">
+        <div className="login-header-logo">
+          <div className="login-header-logo-card-1"></div>
+          <div className="login-header-logo-card-2"></div>
+          <div className="login-header-logo-card-3"></div>
+        </div>
+        <h1 className="login-header-title">Mis Tareas</h1>
+      </div>
       <form onSubmit={handleSubmit} className="login-form">
-        <h3>Iniciar sesión</h3>
+        <h2>Iniciar sesión</h2>
 
         <input
           autoComplete="off"
@@ -38,7 +46,7 @@ export const Login = () => {
           onChange={handleInputChange}
         />
         <button className="login-button" type="submit">
-          Log in
+          Entrar
         </button>
         <Link to="/signin">Registrarse</Link>
       </form>

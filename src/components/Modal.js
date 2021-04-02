@@ -41,7 +41,7 @@ export const Modal = () => {
     <div className="modal">
       <div className="modal-content">
         <form onSubmit={handleSubmit} className="modal-content-form">
-          <h3>{activeTask ? 'Editar tarea' : 'Nueva tarea'}</h3>
+          <h2>{activeTask ? 'Editar tarea' : 'Nueva tarea'}</h2>
           <input
             value={taskInputValue.title}
             onChange={handleInputChange}

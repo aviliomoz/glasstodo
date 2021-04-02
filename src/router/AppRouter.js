@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import { Loading } from '../components/Loading';
 import { renew } from '../redux/actions/authActions';
 
 import { Login } from '../views/Login';
@@ -20,7 +21,7 @@ export const AppRouter = () => {
 
   // Return Loading component if authentication procces is not completed
   if (checking) {
-    return <h2>Loading</h2>;
+    return <Loading />;
   }
 
   return (
