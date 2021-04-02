@@ -63,7 +63,6 @@ export const Layout = ({ children }) => {
           add
         </button>
       </main>
-      <footer className="layout-footer"></footer>
       {modalIsOpen && <Modal />}
     </div>
   );

@@ -14,7 +14,7 @@ export const simpleFetch = (endpoint, method = 'GET', body = null) => {
       });
     }
   } catch (error) {
-    console.error(error);
+    console.log(error.message);
   }
 };
 
@@ -40,6 +40,6 @@ export const fetchWithToken = (endpoint, method = 'GET', body = null) => {
       });
     }
   } catch (error) {
-    console.error(error);
+    console.log(error.message);
   }
 };
