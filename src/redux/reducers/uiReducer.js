@@ -3,6 +3,7 @@ import { types } from '../types';
 const initialState = {
   activeFilter: 'all',
   modalIsOpen: false,
+  errorMessage: null,
 };
 
 export const uiReducer = (state = initialState, action) => {
@@ -21,6 +22,16 @@ export const uiReducer = (state = initialState, action) => {
       return {
         ...state,
         modalIsOpen: false,
+      };
+    case types.uiLoadErrorMessage:
+      return {
+        ...state,
+        errorMessage: action.payload,
+      };
+    case types.uiCleanErrorMessage:
+      return {
+        ...state,
+        errorMessage: null,
       };
 
     default:

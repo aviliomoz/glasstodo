@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 import { login } from '../redux/actions/authActions';
@@ -6,8 +6,10 @@ import { login } from '../redux/actions/authActions';
 export const Login = () => {
   const dispatch = useDispatch();
 
+  const { errorMessage } = useSelector((state) => state.ui);
+
   const [formValues, handleInputChange] = useForm({
-    email: '',
+    email: 'avilio@correo.com',
     password: '',
   });
 
@@ -45,6 +47,7 @@ export const Login = () => {
           value={formValues.password}
           onChange={handleInputChange}
         />
+        {errorMessage && <span>{errorMessage}</span>}
         <button className="login-button" type="submit">
           Entrar
         </button>

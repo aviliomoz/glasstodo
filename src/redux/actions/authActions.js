@@ -1,5 +1,6 @@
 import { types } from '../types';
 import { fetchWithToken, simpleFetch } from '../../helpers/fetch';
+import { cleanErrorMessage, loadErrorMessage } from './uiActions';
 
 export const login = (email, password) => {
   return async (dispatch) => {
@@ -17,6 +18,9 @@ export const login = (email, password) => {
             username: data.username,
           },
         });
+        dispatch(cleanErrorMessage());
+      } else {
+        dispatch(loadErrorMessage(data.error));
       }
     } catch (error) {
       console.error(error);
@@ -45,6 +49,9 @@ export const signin = (name, lastname, email, password) => {
             username: data.username,
           },
         });
+        dispatch(cleanErrorMessage());
+      } else {
+        console.log(data);
       }
     } catch (error) {
       console.error(error);
@@ -85,6 +92,7 @@ export const renew = () => {
             username: data.username,
           },
         });
+        dispatch(cleanErrorMessage());
       }
     } catch (error) {
       dispatch({
