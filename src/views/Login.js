@@ -9,7 +9,7 @@ export const Login = () => {
   const { errorMessage } = useSelector((state) => state.ui);
 
   const [formValues, handleInputChange] = useForm({
-    email: 'avilio@correo.com',
+    email: '',
     password: '',
   });
 
