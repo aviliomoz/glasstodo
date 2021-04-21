@@ -72,10 +72,3 @@ export const deleteTask = (task) => {
     }
   };
 };
-
-export const setActiveTask = (task) => {
-  return {
-    type: types.todoSetActiveTask,
-    payload: task,
-  };
-};

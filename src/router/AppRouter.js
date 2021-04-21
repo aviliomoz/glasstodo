@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { HashRouter as Router, Switch, Redirect } from 'react-router-dom';
-import { Loading } from '../components/Loading';
-import { renew } from '../redux/actions/authActions';
+import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 
-import { Login } from '../views/Login';
-import { Signin } from '../views/Signin';
-import { LoggedRouter } from './LoggedRouter';
+import { renew } from '../redux/actions/authActions';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
+
+import { Home } from '../views/Home';
+import { Login } from '../views/Login';
+import { Signin } from '../views/Signin';
+import { Loading } from '../components/Loading';
 
 export const AppRouter = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const AppRouter = () => {
     dispatch(renew());
   }, [dispatch]);
 
-  // Return Loading component if authentication procces is not completed
+  // Returns Loading component if authentication procces is not completed
   if (checking) {
     return <Loading />;
   }
@@ -43,7 +44,7 @@ export const AppRouter = () => {
           isAuthenticated={isAuth}
           exact
           path="/"
-          component={LoggedRouter}
+          component={Home}
         />
         <Redirect to="/" />
       </Switch>

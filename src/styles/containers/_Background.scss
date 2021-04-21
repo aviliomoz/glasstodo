@@ -1,0 +1,95 @@
+.background {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: #fbf0fd;
+
+  .circle-1,
+  .circle-2,
+  .circle-3 {
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .circle-1 {
+    background: #d77ddb;
+    width: 500px;
+    height: 500px;
+    top: -50vh;
+    left: 10vw;
+    animation-name: circle-1-move;
+    animation-duration: 10s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes circle-1-move {
+    0% {
+      top: -50vh;
+      left: 10vw;
+    }
+    100% {
+      top: -30vh;
+      left: 30vw;
+    }
+  }
+
+  .circle-2 {
+    background: #dbebfb;
+    width: 700px;
+    height: 700px;
+    left: -30vw;
+    bottom: -40vh;
+    animation-name: circle-2-move;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes circle-2-move {
+    0% {
+      left: -30vw;
+      bottom: -40vh;
+    }
+    100% {
+      left: 10vw;
+      bottom: -40vh;
+    }
+  }
+
+  .circle-3 {
+    background: #894be6;
+    width: 900px;
+    height: 900px;
+    right: -10vw;
+    bottom: -60vh;
+    animation-name: circle-3-move;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes circle-3-move {
+  0% {
+    right: -10vw;
+    bottom: -60vh;
+  }
+  100% {
+    right: -20vw;
+    bottom: -70vh;
+  }
+}
+
+.background-glass {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -5,13 +5,12 @@
 
 //Components
 @import './components/Task';
-@import './components/Modal';
 @import './components/Loading';
+@import './components/Calendar';
 
 //Containers
+@import './containers/AuthLayout';
+@import './containers/Background';
 @import './containers/Layout';
-
-//Views
-@import './views/Home';
-@import './views/Login';
-@import './views/Signin';
+@import './containers/TasksList';
+@import './containers/TasksFrom';

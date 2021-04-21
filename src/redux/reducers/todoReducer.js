@@ -2,7 +2,6 @@ import { types } from '../types';
 
 const initialState = {
   tasks: [],
-  activeTask: null,
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -31,12 +30,6 @@ export const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: state.tasks.filter((task) => task._id !== action.payload._id),
-      };
-
-    case types.todoSetActiveTask:
-      return {
-        ...state,
-        activeTask: action.payload,
       };
 
     case types.todoReset:

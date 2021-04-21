@@ -1,54 +1,42 @@
 import { useDispatch } from 'react-redux';
-import {
-  deleteTask,
-  setActiveTask,
-  updateTask,
-} from '../redux/actions/todoActions';
-import { openModal } from '../redux/actions/uiActions';
+import { MdCheck } from 'react-icons/md';
+import { deleteTask, updateTask } from '../redux/actions/todoActions';
 
 export const Task = ({ task }) => {
   const dispatch = useDispatch();
 
-  const handleOpenModal = () => {
-    dispatch(setActiveTask(task));
-    dispatch(openModal());
-  };
-
   return (
-    <div className="task">
-      <section
-        className={
-          task.completed ? 'task-content task-completed' : 'task-content'
-        }
-      >
-        {task.title}
-      </section>
-      <section className="task-options">
+    <div className={task.completed ? 'task task-completed' : 'task'}>
+      {!task.completed && (
         <button
           onClick={() => dispatch(deleteTask(task))}
           className="task-options-delete material-icons"
         >
           close
         </button>
-        <button
-          onClick={handleOpenModal}
-          className="task-options-update material-icons"
-        >
-          edit
-        </button>
-        <button
-          onClick={() =>
-            dispatch(
-              updateTask({
-                ...task,
-                completed: !task.completed,
-              }),
-            )
-          }
-          className="task-options-completed material-icons"
-        >
-          done
-        </button>
+      )}
+      <button
+        className="task-options-completed"
+        onClick={() =>
+          dispatch(
+            updateTask({
+              ...task,
+              completed: !task.completed,
+            }),
+          )
+        }
+      >
+        {task.completed ? 'Activar' : 'Completar'}
+      </button>
+      <div className="task-time">{task.time}</div>
+      {task.completed && (
+        <div className="task-check">
+          <MdCheck />
+        </div>
+      )}
+      <section className="task-content">
+        <h3>{task.title}</h3>
+        <p>{task.description}</p>
       </section>
     </div>
   );

@@ -1,69 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { HiOutlineLogout } from 'react-icons/hi';
+import moment from 'moment';
+import { TasksForm } from './TasksForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { Modal } from '../components/Modal';
+import { setActiveDate } from '../redux/actions/dateActions';
 import { logout } from '../redux/actions/authActions';
-import { openModal, setActiveFilter } from '../redux/actions/uiActions';
 
 export const Layout = ({ children }) => {
   const dispatch = useDispatch();
 
-  const { activeFilter, modalIsOpen } = useSelector((state) => state.ui);
+  const { activeDate } = useSelector((state) => state.date);
   const { username } = useSelector((state) => state.auth);
 
-  const verifyActiveFilterClassName = (filterName) => {
-    if (filterName === activeFilter) {
-      return 'layout-header-nav-button active';
-    } else {
-      return 'layout-header-nav-button';
-    }
-  };
+  useEffect(() => {
+    activeDate === '' && dispatch(setActiveDate(moment().format('YYYY-MM-DD')));
+  }, [dispatch, activeDate]);
 
   return (
     <div className="layout">
-      <header className="layout-header">
-        <div className="layout-header-top">
-          <h1>Tareas</h1>
-          <div className="layout-header-top-user">
-            <span>{username}</span>
-            <i onClick={() => dispatch(logout())} className="material-icons">
-              logout
-            </i>
+      <section className="layout-tasks">
+        <div className="layout-tasks-header">
+          <div className="layout-tasks-header-top">
+            <h1>Tareas</h1>
+            <div className="layout-tasks-header-top-user">
+              <h3>{username}</h3>
+              <HiOutlineLogout onClick={() => dispatch(logout())} />
+            </div>
           </div>
+          <p>{`${moment(activeDate).format('dddd')} ${moment(activeDate).format(
+            'DD',
+          )} de ${moment(activeDate).format('MMMM')}`}</p>
         </div>
-        <nav className="layout-header-nav">
-          <button
-            onClick={(e) => dispatch(setActiveFilter(e.target.id))}
-            id="all"
-            className={verifyActiveFilterClassName('all')}
-          >
-            Todas
-          </button>
-          <button
-            onClick={(e) => dispatch(setActiveFilter(e.target.id))}
-            id="pending"
-            className={verifyActiveFilterClassName('pending')}
-          >
-            Pendientes
-          </button>
-          <button
-            onClick={(e) => dispatch(setActiveFilter(e.target.id))}
-            id="done"
-            className={verifyActiveFilterClassName('done')}
-          >
-            Completadas
-          </button>
-        </nav>
-      </header>
-      <main className="layout-main">
-        {children}
-        <button
-          onClick={() => dispatch(openModal())}
-          className="add-task-button material-icons"
-        >
-          add
-        </button>
-      </main>
-      {modalIsOpen && <Modal />}
+        <div className="layout-tasks-container">{children}</div>
+      </section>
+      <section className="layout-calendar">
+        <TasksForm />
+      </section>
     </div>
   );
 };

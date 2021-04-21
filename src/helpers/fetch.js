@@ -1,4 +1,4 @@
-const api_url = 'https://todo-mern-app-avilio.herokuapp.com';
+const api_url = 'https://glasstodo-aviliomoz.herokuapp.com';
 
 export const simpleFetch = (endpoint, method = 'GET', body = null) => {
   try {

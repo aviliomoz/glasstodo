@@ -28,12 +28,11 @@ export const login = (email, password) => {
   };
 };
 
-export const signin = (name, lastname, email, password) => {
+export const signin = (name, email, password) => {
   return async (dispatch) => {
     try {
       const res = await simpleFetch('/auth/signin', 'POST', {
         name,
-        lastname,
         email,
         password,
       });
