@@ -1,30 +1,23 @@
 .layout {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  padding: 0 3em;
+  height: 100%;
 }
 
 .layout-tasks,
 .layout-calendar {
-  border-radius: 15px;
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.5),
     rgba(255, 255, 255, 0.3)
   );
-  box-shadow: 0 0 10px rgb(14, 1, 20, 0.1);
-  padding: 2em;
-  height: 85vh;
-  margin: 1em;
+  // box-shadow: 0 0 10px rgb(14, 1, 20, 0.1);
+  padding: 1em 1em 3em 1em;
+  min-width: 300px;
+  height: 100%;
 }
 
 .layout-tasks {
-  width: 60%;
-  min-width: 300px;
+  width: 100%;
   overflow-y: scroll;
 }
 
@@ -36,11 +29,33 @@
 .layout-tasks::-webkit-scrollbar-thumb {
   background: rgba(137, 75, 230, 0.2);
   backdrop-filter: blur(100px);
-  border-radius: 15px;
 }
 
 .layout-tasks::-webkit-scrollbar-button {
   height: 100px;
+}
+
+.layout-tasks-add {
+  position: fixed;
+  bottom: 10vh;
+  right: 0;
+  background: white;
+  padding: 0.5em 2em 0.5em 0.5em;
+  border-radius: 30px 0 0 30px;
+  z-index: 2;
+
+  svg {
+    background: #894be6;
+    fill: white;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 50%;
+  }
+
+  svg:active {
+    background: rgba(137, 75, 230, 0.8);
+  }
 }
 
 .layout-tasks-header-top {
@@ -64,6 +79,76 @@
 }
 
 .layout-calendar {
-  width: 30%;
-  min-width: 300px;
+  width: 100%;
+  max-width: 440px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: none;
+  background: white;
+  animation-name: showCalendarBox;
+  animation-duration: 0.5s;
+  z-index: 3;
+}
+
+@keyframes showCalendarBox {
+  0% {
+    right: -100vw;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+.layout-calendar.active {
+  display: flex;
+}
+
+.layout-calendar-close {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .layout {
+    padding: 4em;
+    display: flex;
+    justify-content: center;
+  }
+
+  .layout-tasks {
+    width: 50%;
+    margin-right: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(14, 1, 20, 0.1);
+  }
+
+  .layout-tasks-add {
+    display: none;
+    width: 30%;
+  }
+
+  .layout-calendar {
+    display: flex;
+    width: 320px;
+    position: relative;
+    animation: none;
+    border-radius: 15px;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.3)
+    );
+    box-shadow: 0 0 10px rgb(14, 1, 20, 0.1);
+
+    .layout-calendar-close {
+      display: none;
+    }
+  }
 }

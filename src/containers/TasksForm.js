@@ -5,14 +5,14 @@ import { Calendar } from '../components/Calendar';
 import { useForm } from '../hooks/useForm';
 import { createTask } from '../redux/actions/todoActions';
 
-export const TasksForm = () => {
+export const TasksForm = ({ toggleCalendarBox }) => {
   const dispatch = useDispatch();
 
   const { uid } = useSelector((state) => state.auth);
   const { activeDate } = useSelector((state) => state.date);
 
   const [formValues, handleInputChange, reset] = useForm({
-    time: '',
+    time: '00:00',
     title: '',
     description: '',
   });
@@ -29,6 +29,7 @@ export const TasksForm = () => {
         time: moment(formValues.time, 'h:mm').format('hh:mm a'),
       }),
     );
+    toggleCalendarBox();
   };
 
   const disableSubmit = () => {

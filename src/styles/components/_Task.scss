@@ -1,10 +1,10 @@
 .task {
-  width: 100%;
+  width: 90%;
   min-height: 100px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgb(14, 1, 20, 0.1);
-  margin-bottom: 1em;
-  padding: 1.2em;
+  margin: 0 0 4em 1em;
+  padding: 1.2em 1.2em 4em 1.2em;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -18,20 +18,28 @@
 }
 
 .task-completed {
-  width: 90%;
+  width: 75%;
   min-height: 55px;
   align-items: center;
-  h3 {
-    color: rgba(14, 1, 20, 0.4);
-  }
-  p {
-    display: none;
+  padding: 1.2em;
+
+  .task-content {
+    max-width: 50%;
+    h3 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: rgba(14, 1, 20, 0.4);
+    }
+    p {
+      display: none;
+    }
   }
 }
 
 .task-check {
   position: absolute;
-  right: -4em;
+  right: -3.4em;
   width: 40px;
   height: 40px;
   display: flex;
@@ -55,32 +63,32 @@
     opacity: 0;
     width: 40px;
     height: 40px;
-    right: -4em;
+    right: -3.4em;
   }
   50% {
     opacity: 0;
     width: 40px;
     height: 40px;
-    right: -4em;
+    right: -3.4em;
   }
   60% {
     opacity: 0.5;
-    width: 45px;
-    height: 45px;
-    right: -4.1em;
+    width: 42px;
+    height: 42px;
+    right: -3.5em;
   }
   100% {
     opacity: 1;
     width: 40px;
     height: 40px;
-    right: -4em;
+    right: -3.4em;
   }
 }
 
 .task-time {
   position: absolute;
-  top: 0;
-  left: -8em;
+  top: -3em;
+  left: -3em;
   background: rgba(137, 75, 230, 0.2);
   backdrop-filter: blur(80px);
   font-size: 0.8rem;
@@ -90,7 +98,7 @@
 
 .task-content {
   height: 100%;
-  width: 70%;
+  width: 95%;
   text-align: start;
   color: #0e0114;
 
@@ -112,13 +120,14 @@
 
 .task-options-delete {
   position: absolute;
-  top: 0.4em;
-  right: 0.4em;
-  background: rgba(255, 255, 255, 0);
-  color: #0e0114;
-  padding: 0.15em;
-  box-shadow: 0 0 5px rgba(14, 1, 20, 0);
-  transition: all 0.2s;
+  top: 0.6em;
+  right: 0.6em;
+  background: transparent;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .task-options-completed {

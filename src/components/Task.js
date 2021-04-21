@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { MdCheck } from 'react-icons/md';
+import { MdCheck, MdClose } from 'react-icons/md';
 import { deleteTask, updateTask } from '../redux/actions/todoActions';
 
 export const Task = ({ task }) => {
@@ -10,9 +10,9 @@ export const Task = ({ task }) => {
       {!task.completed && (
         <button
           onClick={() => dispatch(deleteTask(task))}
-          className="task-options-delete material-icons"
+          className="task-options-delete"
         >
-          close
+          <MdClose />
         </button>
       )}
       <button

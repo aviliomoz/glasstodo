@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import { HiOutlineLogout } from 'react-icons/hi';
+import React, { useEffect, useRef } from 'react';
+import { HiOutlineLogout, HiX } from 'react-icons/hi';
+import { RiCalendarEventFill } from 'react-icons/ri';
 import moment from 'moment';
 import { TasksForm } from './TasksForm';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +10,8 @@ import { logout } from '../redux/actions/authActions';
 export const Layout = ({ children }) => {
   const dispatch = useDispatch();
 
+  const calendarBox = useRef();
+
   const { activeDate } = useSelector((state) => state.date);
   const { username } = useSelector((state) => state.auth);
 
@@ -16,9 +19,16 @@ export const Layout = ({ children }) => {
     activeDate === '' && dispatch(setActiveDate(moment().format('YYYY-MM-DD')));
   }, [dispatch, activeDate]);
 
+  const toggleCalendarBox = () => {
+    calendarBox.current.classList.toggle('active');
+  };
+
   return (
     <div className="layout">
       <section className="layout-tasks">
+        <div className="layout-tasks-add">
+          <RiCalendarEventFill onClick={toggleCalendarBox} />
+        </div>
         <div className="layout-tasks-header">
           <div className="layout-tasks-header-top">
             <h1>Tareas</h1>
@@ -33,8 +43,11 @@ export const Layout = ({ children }) => {
         </div>
         <div className="layout-tasks-container">{children}</div>
       </section>
-      <section className="layout-calendar">
-        <TasksForm />
+      <section ref={calendarBox} className="layout-calendar">
+        <div className="layout-calendar-close">
+          <HiX onClick={toggleCalendarBox} />
+        </div>
+        <TasksForm toggleCalendarBox={toggleCalendarBox} />
       </section>
     </div>
   );

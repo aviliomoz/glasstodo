@@ -1,7 +1,9 @@
 .background {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
   background: #fbf0fd;
 
   .circle-1,
@@ -82,13 +84,13 @@
 }
 
 .background-glass {
+  width: 100vw;
+  height: 100vh;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  min-height: 100vh;
+  top: 0px;
+  bottom: 0px;
   background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(80px);
+  backdrop-filter: blur(40px);
   display: flex;
   align-items: center;
   justify-content: center;
