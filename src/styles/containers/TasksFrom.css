@@ -16,21 +16,21 @@
   align-items: center;
   justify-content: flex-end;
   padding: 1em 1em 1.2em 1em;
+}
 
-  input {
-    width: 100%;
-    margin-bottom: 1em;
-    padding: 0.8em;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 0 2px rgb(14, 1, 20, 0.3);
-    background: linear-gradient(
-      to right bottom,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 0.95)
-    );
-    outline: none;
-  }
+.tasks-form-editor input {
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.8em;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgb(21, 24, 17, 0.2);
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.95)
+  );
+  outline: none;
 }
 
 .tasks-form-editor-date {
@@ -53,7 +53,7 @@
   border: none;
   border-radius: 12px;
   padding: 1em;
-  background: #0e0114;
+  background: #151811;
   color: white;
   font-size: 16px;
   letter-spacing: 0.1em;
@@ -63,12 +63,13 @@
 @media (min-width: 768px) {
   .tasks-form-editor {
     padding: 1em 1em 0 1em;
-    input {
-      background: linear-gradient(
-        to right bottom,
-        rgba(255, 255, 255, 8),
-        rgba(255, 255, 255, 0.5)
-      );
-    }
+  }
+
+  .tasks-form-editor input {
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 8),
+      rgba(255, 255, 255, 0.5)
+    );
   }
 }

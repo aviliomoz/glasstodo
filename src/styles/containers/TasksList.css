@@ -6,8 +6,8 @@
 .tasks-list-container {
   padding-top: 2.5em;
   width: 100%;
-  min-height: 50vh;
-  border-left: 2px dashed rgba(137, 75, 230, 0.1);
+  min-height: 30vh;
+  border-left: 2px dashed rgba(21, 24, 17, 0.1);
 }
 
 @media (min-width: 768px) {

@@ -26,7 +26,7 @@
 }
 
 .layout-tasks::-webkit-scrollbar-thumb {
-  background: rgba(137, 75, 230, 0.2);
+  background: rgba(21, 24, 17, 0.2);
   backdrop-filter: blur(100px);
 }
 
@@ -42,19 +42,19 @@
   padding: 0.5em 2em 0.5em 0.5em;
   border-radius: 30px 0 0 30px;
   z-index: 2;
+}
 
-  svg {
-    background: #894be6;
-    fill: white;
-    width: 40px;
-    height: 40px;
-    padding: 8px;
-    border-radius: 50%;
-  }
+.layout-tasks-add svg {
+  background: #151811;
+  fill: white;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 50%;
+}
 
-  svg:active {
-    background: rgba(137, 75, 230, 0.8);
-  }
+.layout-tasks-add svg:active {
+  background: rgba(21, 24, 17, 0.8);
 }
 
 .layout-tasks-header-top {
@@ -67,14 +67,14 @@
 .layout-tasks-header-top-user {
   display: flex;
   align-items: center;
+}
 
-  svg {
-    margin-left: 1em;
-    stroke: rgba(46, 31, 70, 0.7);
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
+.layout-tasks-header-top-user svg {
+  margin-left: 1em;
+  stroke: rgba(21, 24, 17, 0.7);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .layout-calendar {
@@ -107,11 +107,11 @@
   position: absolute;
   top: 1em;
   right: 1em;
+}
 
-  svg {
-    width: 40px;
-    height: 40px;
-  }
+svg {
+  width: 40px;
+  height: 40px;
 }
 
 @media (min-width: 768px) {
@@ -125,7 +125,7 @@
     width: 50%;
     margin-right: 20px;
     border-radius: 15px;
-    box-shadow: 0 0 10px rgb(14, 1, 20, 0.1);
+    box-shadow: 0 0 10px rgb(21, 24, 17, 0.1);
   }
 
   .layout-tasks-add {
@@ -148,10 +148,10 @@
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.3)
     );
-    box-shadow: 0 0 10px rgb(14, 1, 20, 0.1);
+    box-shadow: 0 0 10px rgb(21, 24, 17, 0.1);
+  }
 
-    .layout-calendar-close {
-      display: none;
-    }
+  .layout-calendar .layout-calendar-close {
+    display: none;
   }
 }

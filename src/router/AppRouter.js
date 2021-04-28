@@ -6,9 +6,9 @@ import { renew } from '../redux/actions/authActions';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 
-import { Home } from '../views/Home';
-import { Login } from '../views/Login';
-import { Signin } from '../views/Signin';
+import { Home } from '../pages/Home';
+import { Login } from '../pages/Login';
+import { Signin } from '../pages/Signin';
 import { Loading } from '../components/Loading';
 
 export const AppRouter = () => {

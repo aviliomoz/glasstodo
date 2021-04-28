@@ -1,5 +1,5 @@
 import { types } from '../types';
-import { fetchWithToken } from '../../helpers/fetch';
+import { fetchWithToken } from '../../utils/fetch';
 
 export const getTasks = (uid) => {
   return async (dispatch) => {

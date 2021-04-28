@@ -1,5 +1,5 @@
 import { types } from '../types';
-import { fetchWithToken, simpleFetch } from '../../helpers/fetch';
+import { fetchWithToken, simpleFetch } from '../../utils/fetch';
 import { cleanErrorMessage, loadErrorMessage } from './uiActions';
 
 export const login = (email, password) => {

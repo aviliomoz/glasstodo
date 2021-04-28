@@ -1,0 +1,15 @@
+/* Base */
+@import './base/fonts.css';
+@import './base/global.css';
+
+/* Components */
+@import './components/Task.css';
+@import './components/Loading.css';
+@import './components/Calendar.css';
+
+/* Containers */
+@import './containers/AuthLayout.css';
+@import './containers/Background.css';
+@import './containers/Layout.css';
+@import './containers/TasksList.css';
+@import './containers/TasksFrom.css';
