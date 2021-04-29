@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: #cfe1b9;
+  background: #BFE8DA;
 }
 
 .circle-1,
@@ -15,7 +15,7 @@
 }
 
 .circle-1 {
-  background: #97a97c;
+  background: #A6DECA;
   width: 500px;
   height: 500px;
   top: -50vh;
@@ -38,7 +38,7 @@
 }
 
 .circle-2 {
-  background: #b5c99a;
+  background: #A6DECA;
   width: 700px;
   height: 700px;
   left: -30vw;
@@ -61,7 +61,7 @@
 }
 
 .circle-3 {
-  background: #87986a;
+  background: #A6DECA;
   width: 900px;
   height: 900px;
   right: -10vw;

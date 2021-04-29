@@ -7,7 +7,7 @@
   padding-top: 2.5em;
   width: 100%;
   min-height: 30vh;
-  border-left: 2px dashed rgba(21, 24, 17, 0.1);
+  border-left: 2px dashed rgba(10, 11, 10, 0.1);
 }
 
 @media (min-width: 768px) {

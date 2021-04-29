@@ -20,9 +20,9 @@
 }
 
 .calendar-header-arrows svg {
-  fill: rgba(21, 24, 17, 0.6);
+  fill: rgba(10, 11, 10, 0.6);
   margin-left: 1em;
-  background: rgba(21, 24, 17, 0.2);
+  background: #BFE8DA;
   border-radius: 50%;
   width: 25px;
   height: 25px;
@@ -69,16 +69,14 @@
 }
 
 .calendar-container-numbers .number:hover {
-  background: rgba(21, 24, 17, 0.4);
+  background: #e9f8f1;
   border-radius: 8px;
-  color: white;
   cursor: pointer;
 }
 
 .calendar-container-numbers .today:hover {
-  background: rgba(21, 24, 17, 0.4);
+  background: #e9f8f1;
   border-radius: 8px;
-  color: white;
   cursor: pointer;
   font-weight: normal;
 }
@@ -89,7 +87,7 @@
 }
 
 .calendar-container-numbers .active {
-  background: rgba(21, 24, 17, 0.4);
+  background: #22b17c;
   border-radius: 8px;
   color: white;
   cursor: pointer;
